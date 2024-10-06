@@ -1,0 +1,12 @@
+name: AreaProtect
+version: 1.0.0-beta
+author: WavyCraft
+api: 5.0.0
+main: wavycraft\areaprotect\Loader
+
+permissions:
+  areaprotect.cmd:
+    default: op
+# Made for WavyCraftNetwork©
+# Creation: October 6, 2024 at 1:44pm PST
+# **PUBLIC PLUGIN**
