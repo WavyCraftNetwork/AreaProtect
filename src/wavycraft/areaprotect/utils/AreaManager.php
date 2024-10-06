@@ -43,14 +43,17 @@ class AreaManager {
     public function setPosition(Player $player, Vector3 $position) {
         if (isset($this->positionBuffer[$player->getName()])) {
             $buffer = &$this->positionBuffer[$player->getName()];
+        
             if ($buffer['pos1'] === null) {
                 $buffer['pos1'] = $position;
-                $player->sendMessage("Position 1 set! Now left-click another block for Position 2.");
+                $player->sendMessage("Position 1 set! Now click another block for Position 2.");
             } elseif ($buffer['pos2'] === null) {
                 $buffer['pos2'] = $position;
                 $this->saveArea($buffer['tag'], $buffer['pos1'], $buffer['pos2']);
-                $player->sendMessage("Position 2 set! Area '{$buffer['tag']}' created.");
+                $player->sendMessage("Position 2 set! Area '{$buffer['tag']}' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
+            } else {
+                $player->sendMessage("Both positions are already set for area '{$buffer['tag']}'.");
             }
         }
     }
