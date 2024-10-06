@@ -72,9 +72,12 @@ class AreaManager {
                 'block_place' => true,
                 'block_break' => true,
                 'item_drop' => true,
-                'item_interaction' => true
+                'item_interaction' => true,
+                'item_use' => true,
+                'shoot_bow' => true
             ]
         ];
+        
         $this->saveAreas();
     }
 
@@ -136,8 +139,14 @@ class AreaManager {
                 case 4:
                     $this->toggleFlag($tag, 'item_interaction', $player);
                     break;
-            }
-        });
+                case 5:
+                    $this->toggleFlag($tag, 'item_use', $player);
+                    break;
+                case 6:
+                    $this->toggleFlag($tag, 'shoot_bow', $player);
+                    break;
+                }
+            });
 
         $form->setTitle("Edit Area '$tag' Flags");
         $form->addButton("Enable/Disable PvP");
@@ -145,7 +154,9 @@ class AreaManager {
         $form->addButton("Enable/Disable Block Break");
         $form->addButton("Enable/Disable Item Drop");
         $form->addButton("Enable/Disable Item Interaction");
+        $form->addButton("Enable/Disable Item Use");
+        $form->addButton("Enable/Disable Bow Shoot");
 
         $player->sendForm($form);
-    }
+     }
 }
