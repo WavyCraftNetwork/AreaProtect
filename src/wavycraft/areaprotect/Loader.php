@@ -24,6 +24,8 @@ class Loader extends PluginBase {
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         
         $this->getServer()->getCommandMap()->register("AreaProtect", new AreaCommand());
+
+        AreaManager::getInstance()->loadAreas();
     }
 
     protected function onDisable() : void{
