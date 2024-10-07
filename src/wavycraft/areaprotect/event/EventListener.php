@@ -32,9 +32,15 @@ class EventListener implements Listener {
         $player = $event->getPlayer();
         $block = $event->getBlock();
         $pos = $block->getPosition();
+        $area = $this->areaManager->getAreaAtPosition($pos);
  
         if ($this->areaManager->isSettingPosition($player)) {
             $this->areaManager->setPosition($player, $pos);
+            $event->cancel();
+        }
+
+        if ($area && !$area['flags']['interaction']) {
+            $player->sendMessage("Interacting is disabled in this area.");
             $event->cancel();
         }
     }
