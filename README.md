@@ -20,7 +20,7 @@ With commands you can now manage area's! How it works is so basiclly run the com
 Got a suggestion let me know via PullRequest!
 
 # Required virions/plugins
-This plugin uses [libFormAPI](https://github.com/jojoe77777/FormAPI) by @jojoe77777.
+This plugin uses [libFormAPI](https://github.com/jojoe77777/FormAPI) by @jojoe77777
 
 Make sure you put the virion inside the **plugins folder** just like any other plugin, restart your server and you should be good to go!
 
