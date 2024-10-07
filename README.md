@@ -8,7 +8,7 @@ With commands you can now manage area's! How it works is so basiclly run the com
 - [x] Enable/Disable Item Interactions
 - [x] Enable/Disable Item Drop
 - [x] Enable/Disable Bow usage
-- [ ] Enable/Disable Player interactions
+- [x] Enable/Disable Player interactions
 - [ ] Enable/Disable Player eating/drinking
 - [ ] Enable/Disable TrampleFarmLand
 - [ ] Enable/Disable Throwables
