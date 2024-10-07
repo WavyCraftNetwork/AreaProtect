@@ -163,7 +163,7 @@ class AreaManager {
         $form->addButton("Enable/Disable Item Interaction");
         $form->addButton("Enable/Disable Item Use");
         $form->addButton("Enable/Disable Bow Shoot");
-        $form->addButton("Enable/Disable Player Interactions);
+        $form->addButton("Enable/Disable Player Interactions");
 
         $player->sendForm($form);
      }
