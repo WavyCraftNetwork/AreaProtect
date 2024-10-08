@@ -83,13 +83,15 @@ class EventListener implements Listener {
     }
 
     public function onTrampleFarmland(EntityTrampleFarmlandEvent $event) {
-        $player = $event->getEntity();
-        $world = $player->getWorld()->getFolderName();
+        $entity = $event->getEntity();
+        $world = $entity->getWorld()->getFolderName();
         $pos = $event->getBlock()->getPosition();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
-        if ($area && !$area['flags']['farmland_trample']) {
-            $player->sendMessage("Trampling farmland is disabled in this area.");
-            $event->cancel();
+        if ($entity instanceof Player) {
+            if ($area && !$area['flags']['farmland_trample']) {
+                $entity->sendMessage("Trampling over farmland is disabled in this area.");
+                $event->cancel();
+            }
         }
     }
 
@@ -245,7 +247,7 @@ class EventListener implements Listener {
         }
     }
 
-    public function onEnchant(PlayerItemEnchantEvent $event) {
+    public function onItemEnchant(PlayerItemEnchantEvent $event) {
         $player = $event->getPlayer();
         $pos = $player->getPosition();
         $world = $player->getWorld()->getFolderName();
