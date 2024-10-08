@@ -121,6 +121,42 @@ class EventListener implements Listener {
             }    
         }
 
+        if ($event->getCause() === EntityDamageEvent::CAUSE_PROJECTILE) {
+            if ($area && !$area['flags']['projectile_damage']) {
+            $event->cancel();                
+            }    
+        }
+
+        if ($event->getCause() === EntityDamageEvent::CAUSE_FIRE) {
+            if ($area && !$area['flags']['fire']) {
+            $event->cancel();                
+            }    
+        }
+
+        if ($event->getCause() === EntityDamageEvent::CAUSE_FIRE_TICK) {
+            if ($area && !$area['flags']['fire_tick']) {
+            $event->cancel();                
+            }    
+        }
+
+        if ($event->getCause() === EntityDamageEvent::CAUSE_LAVA) {
+            if ($area && !$area['flags']['lava']) {
+            $event->cancel();                
+            }    
+        }
+
+        if ($event->getCause() === EntityDamageEvent::CAUSE_DROWNING) {
+            if ($area && !$area['flags']['drowning']) {
+            $event->cancel();                
+            }    
+        }
+
+        if ($event->getCause() === EntityDamageEvent::CAUSE_ENTITY_EXPLOSION) {
+            if ($area && !$area['flags']['entity_explosion']) {
+            $event->cancel();                
+            }    
+        }
+
         if ($area && !$area['flags']['invincible']) {
             $event->cancel();
         }
