@@ -116,7 +116,8 @@ class AreaManager {
                 'fire_tick' => true,
                 'projectile_damage' => true,
                 'drowning' => true,
-                'entity_explosion' => true
+                'entity_explosion' => true,
+                'suffocation' => true
             ]
         ];
 
@@ -277,6 +278,9 @@ class AreaManager {
                 case 36:
                     $this->toggleFlag($tag, 'entity_explosion', $player);
                     break;
+                case 37:
+                    $this->toggleFlag($tag, 'suffocation', $player);
+                    break;
                 }
             });
 
@@ -319,6 +323,7 @@ class AreaManager {
         $form->addButton("Enable/Disable Projectile Damage");
         $form->addButton("Enable/Disable Drowning");
         $form->addButton("Enable/Disable Entity Explosion");
+        $form->addButton("Enable/Disable Suffocation");
 
         $player->sendForm($form);
      }
