@@ -95,7 +95,6 @@ class AreaManager {
                 'skin_change' => true,
                 'chat' => true,
                 'edit_book' => true,
-                'emote' => true,
                 'hunger' => true,
                 'consume' => true,
                 'enchanting' => true,
@@ -213,72 +212,69 @@ class AreaManager {
                     $this->toggleFlag($tag, 'edit_book', $player);
                     break;
                 case 15:
-                    $this->toggleFlag($tag, 'emote', $player);
-                    break;
-                case 16:
                     $this->toggleFlag($tag, 'hunger', $player);
                     break;
-                case 17:
+                case 16:
                     $this->toggleFlag($tag, 'consume', $player);
                     break;
-                case 18:
+                case 17:
                     $this->toggleFlag($tag, 'enchanting', $player);
                     break;
-                case 19:
+                case 18:
                     $this->toggleFlag($tag, 'craft_item', $player);
                     break;
-                case 20:
+                case 19:
                     $this->toggleFlag($tag, 'open_inventory', $player);
                     break;
-                case 21:
+                case 20:
                     $this->toggleFlag($tag, 'refuel_furnace', $player);
                     break;
-                case 22:
+                case 21:
                     $this->toggleFlag($tag, 'furnace_smelt', $player);
                     break;
-                case 23:
+                case 22:
                     $this->toggleFlag($tag, 'block_burn', $player);
                     break;
-                case 24:
+                case 23:
                     $this->toggleFlag($tag, 'brew_potions', $player);
                     break;
-                case 25:
+                case 24:
                     $this->toggleFlag($tag, 'refuel_brewing_stand', $player);
                     break;
-                case 26:
+                case 25:
                     $this->toggleFlag($tag, 'leaf_decay', $player);
                     break;
-                case 27:
+                case 26:
                     $this->toggleFlag($tag, 'edit_sign', $player);
                     break;
-                case 28:
+                case 27:
                     $this->toggleFlag($tag, 'sapling_growth', $player);
                     break;
-                case 29:
+                case 28:
                     $this->toggleFlag($tag, 'fall_damage', $player);
                     break;
-                case 30:
+                case 29:
                     $this->toggleFlag($tag, 'invincible', $player);
                     break;
-                case 31:
+                case 30:
                     $this->toggleFlag($tag, 'flint_and_steel', $player);
                     break;
-                case 32:
+                case 31:
                     $this->toggleFlag($tag, 'lava', $player);
                     break;
-                case 33:
+                case 32:
                     $this->toggleFlag($tag, 'fire', $player);
                     break;
-                case 34:
+                case 33:
                     $this->toggleFlag($tag, 'fire_tick', $player);
                     break;
-                case 35:
+                case 34:
                     $this->toggleFlag($tag, 'projectile_damage', $player);
                     break;
-                case 36:
+                case 35:
                     $this->toggleFlag($tag, 'drowning', $player);
                     break;
-                case 37:
+                case 36:
                     $this->toggleFlag($tag, 'entity_explosion', $player);
                     break;
                 }
@@ -301,7 +297,6 @@ class AreaManager {
         $form->addButton("Enable/Disable Skin Change");
         $form->addButton("Enable/Disable Chat");
         $form->addButton("Enable/Disable Edit Book");
-        $form->addButton("Enable/Disable Emote");
         $form->addButton("Enable/Disable Hunger");
         $form->addButton("Enable/Disable Consuming");
         $form->addButton("Enable/Disable Enchanting");
