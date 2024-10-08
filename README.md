@@ -31,9 +31,10 @@ With commands you can now manage area's! How it works is so basiclly run the com
 - [x] Enable/Disable Leaf decaying
 - [x] Enable/Disable Saplings and bamboo growth(either by bone meal or naturally)
 - [x] Enable/Disable Signs(You cannot write on signs or edit them if enabled)
-- [ ] Enable/Disable Lava, Fire, Fire Tick(when you burn to death)
-- [ ] Enable/Disable Projectile damage(when a player gets hit by an arrow e.g)
-- [ ] Enable/Disable Suffocation and Drowning
+- [x] Enable/Disable Lava, Fire, Fire Tick(when you burn to death)
+- [x] Enable/Disable Projectile damage(when a player gets hit by an arrow e.g)
+- [x] Enable/Disable Suffocation and Drowning
+- [x] Enable/Disable Entity explosions(TNT, EndCrystals e.g)
 
 Got a suggestion let me know via PullRequest!
 
