@@ -5,17 +5,35 @@ With commands you can now manage area's! How it works is so basiclly run the com
 - [x] Enable/Disable PvP
 - [x] Enable/Disable Block Placement
 - [x] Enable/Disable Block Break
+- [x] Enable/Disable Block burn(wood on fire)
 - [x] Enable/Disable Item Interactions
 - [x] Enable/Disable Item Drop
 - [x] Enable/Disable Bow usage
 - [x] Enable/Disable Player interactions
-- [ ] Enable/Disable Player eating/drinking
-- [ ] Enable/Disable TrampleFarmLand
-- [ ] Enable/Disable Throwables
-- [ ] Editable permissions
-- [ ] Owner based area's
-- [ ] Show a FloatingText to indicate where's the area
-- [ ] Show a message when entering/leaving an area
+- [x] Enable/Disable Player eating/drinking/hunger
+- [x] Enable/Disable TrampleFarmLand
+- [x] Enable/Disable Throwable Projectiles
+- [x] Enable/Disable Beds(entering a bed)
+- [x] Enable/Disable Enchanting
+- [x] Enable/Disable Fall damage
+- [x] Enable/Disable Invincibility
+- [x] Enable/Disable Flint and Steel
+- [x] Enable/Disable Buckets
+- [x] Enable/Disable Player change skins in-game
+- [x] Enable/Disable Chat
+- [x] Enable/Disable Book signing/editing
+- [x] Enable/Disable Crafting items
+- [x] Enable/Disable Explosions
+- [x] Enable/Disable Trampable farmland(if thats even a word)
+- [x] Enable/Disable Most inventories
+- [x] Enable/Disable Furnace usage(smelting and refueling)
+- [x] Enable/Disable Brewing stand usage(potion brewing and refueling)
+- [x] Enable/Disable Leaf decaying
+- [x] Enable/Disable Saplings and bamboo growth(either by bone meal or naturally)
+- [x] Enable/Disable Signs(You cannot write on signs or edit them if enabled)
+- [ ] Enable/Disable Lava, Fire, Fire Tick(when you burn to death)
+- [ ] Enable/Disable Projectile damage(when a player gets hit by an arrow e.g)
+- [ ] Enable/Disable Suffocation and Drowning
 
 Got a suggestion let me know via PullRequest!
 
