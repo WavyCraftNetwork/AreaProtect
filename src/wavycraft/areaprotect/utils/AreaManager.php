@@ -59,7 +59,11 @@ class AreaManager {
     }
 
     public function saveArea(string $tag, Vector3 $pos1, Vector3 $pos2) {
+        $world = Loader::getInstance()->getServer()->getWorldManager()->getWorldByName($pos1->getWorld()->getFolderName());
         $this->areas[$tag] = [
+            'world' => [
+                'folder_name' => $world->getFolderName()
+            ],
             'pos1' => [
                 'x' => $pos1->getX(),
                 'y' => $pos1->getY(),
@@ -75,10 +79,34 @@ class AreaManager {
                 'block_place' => true,
                 'block_break' => true,
                 'item_drop' => true,
-                'item_interaction' => true,
                 'item_use' => true,
                 'shoot_bow' => true,
-                'interaction' => true
+                'interaction' => true,
+                'farmland_trample' => true,
+                'explosion' => true,
+                'projectiles' => true,
+                'bed_enter' => true,
+                'buckets' => true,
+                'skin_change' => true,
+                'chat' => true,
+                'edit_book' => true,
+                'emote' => true,
+                'hunger' => true,
+                'consume' => true,
+                'enchanting' => true,
+                'craft_item' => true,
+                'open_inventory' => true,
+                'refuel_furnace' => true,
+                'furnace_smelt' => true,
+                'block_burn' => true,
+                'brew_potions' => true,
+                'refuel_brewing_stand' => true,
+                'leaf_decay' => true,
+                'edit_sign' => true,
+                'sapling_growth' => true,
+                'fall_damage' => true,
+                'invincible' => true,//not actually enabled yet...
+                'flint_and_steel' => true
             ]
         ];
         
@@ -98,9 +126,9 @@ class AreaManager {
         return isset($this->positionBuffer[$player->getName()]);
     }
 
-    public function getAreaAtPosition(Vector3 $pos) : ?array{
+    public function getAreaAtPosition(Vector3 $pos, string $worldName) : ?array {
         foreach ($this->areas as $tag => $area) {
-            if ($this->isPositionInsideArea($pos, $area['pos1'], $area['pos2'])) {
+            if ($area['world']['folder_name'] === $worldName && $this->isPositionInsideArea($pos, $area['pos1'], $area['pos2'])) {
                 return $area;
             }
         }
@@ -141,7 +169,7 @@ class AreaManager {
                     $this->toggleFlag($tag, 'item_drop', $player);
                     break;
                 case 4:
-                    $this->toggleFlag($tag, 'item_interaction', $player);
+                    $this->toggleFlag($tag, 'interaction', $player);
                     break;
                 case 5:
                     $this->toggleFlag($tag, 'item_use', $player);
@@ -150,7 +178,80 @@ class AreaManager {
                     $this->toggleFlag($tag, 'shoot_bow', $player);
                     break;
                 case 7:
-                    $this->toggleFlag($tag, 'interaction', $player);
+                    $this->toggleFlag($tag, 'farmland_trample', $player);
+                    break;
+                case 8:
+                    $this->toggleFlag($tag, 'explosion', $player);
+                    break;
+                case 9:
+                    $this->toggleFlag($tag, 'projectiles', $player);
+                    break;
+                case 10:
+                    $this->toggleFlag($tag, 'bed_enter', $player);
+                    break;
+                case 11:
+                    $this->toggleFlag($tag, 'buckets', $player);
+                    break;
+                case 12:
+                    $this->toggleFlag($tag, 'skin_change', $player);
+                    break;
+                case 13:
+                    $this->toggleFlag($tag, 'chat', $player);
+                    break;
+                case 14:
+                    $this->toggleFlag($tag, 'edit_book', $player);
+                    break;
+                case 15:
+                    $this->toggleFlag($tag, 'emote', $player);
+                    break;
+                case 16:
+                    $this->toggleFlag($tag, 'hunger', $player);
+                    break;
+                case 17:
+                    $this->toggleFlag($tag, 'consume', $player);
+                    break;
+                case 18:
+                    $this->toggleFlag($tag, 'enchanting', $player);
+                    break;
+                case 19:
+                    $this->toggleFlag($tag, 'craft_item', $player);
+                    break;
+                case 20:
+                    $this->toggleFlag($tag, 'open_inventory', $player);
+                    break;
+                case 21:
+                    $this->toggleFlag($tag, 'refuel_furnace', $player);
+                    break;
+                case 22:
+                    $this->toggleFlag($tag, 'furnace_smelt', $player);
+                    break;
+                case 23:
+                    $this->toggleFlag($tag, 'block_burn', $player);
+                    break;
+                case 24:
+                    $this->toggleFlag($tag, 'brew_potions', $player);
+                    break;
+                case 25:
+                    $this->toggleFlag($tag, 'refuel_brewing_stand', $player);
+                    break;
+                case 26:
+                    $this->toggleFlag($tag, 'leaf_decay', $player);
+                    break;
+                case 27:
+                    $this->toggleFlag($tag, 'edit_sign', $player);
+                    break;
+                case 28:
+                    $this->toggleFlag($tag, 'sapling_growth', $player);
+                    break;
+                case 29:
+                    $this->toggleFlag($tag, 'fall_damage', $player);
+                    break;
+                case 30:
+                    $this->toggleFlag($tag, 'invincible', $player);
+                    break;
+                case 31:
+                    $this->toggleFlag($tag, 'flint_and_steel', $player);
+                    break;
                 }
             });
 
@@ -160,10 +261,34 @@ class AreaManager {
         $form->addButton("Enable/Disable Block Place");
         $form->addButton("Enable/Disable Block Break");
         $form->addButton("Enable/Disable Item Drop");
-        $form->addButton("Enable/Disable Item Interaction");
+        $form->addButton("Enable/Disable Interactions");
         $form->addButton("Enable/Disable Item Use");
         $form->addButton("Enable/Disable Bow Shoot");
-        $form->addButton("Enable/Disable Player Interactions");
+        $form->addButton("Enable/Disable Trample Farmland");
+        $form->addButton("Enable/Disable Explosions");
+        $form->addButton("Enable/Disable Projectiles");
+        $form->addButton("Enable/Disable Bed");
+        $form->addButton("Enable/Disable Buckets");
+        $form->addButton("Enable/Disable Skin Change");
+        $form->addButton("Enable/Disable Chat");
+        $form->addButton("Enable/Disable Edit Book");
+        $form->addButton("Enable/Disable Emote");
+        $form->addButton("Enable/Disable Hunger");
+        $form->addButton("Enable/Disable Consuming");
+        $form->addButton("Enable/Disable Enchanting");
+        $form->addButton("Enable/Disable Craft Items");
+        $form->addButton("Enable/Disable Open Inventory");
+        $form->addButton("Enable/Disable Refuel Furnace");
+        $form->addButton("Enable/Disable Furnace Smelting");
+        $form->addButton("Enable/Disable Block Burning");
+        $form->addButton("Enable/Disable Brew Potions");
+        $form->addButton("Enable/Disable Refuel Brewing Stand");
+        $form->addButton("Enable/Disable Leaf Decaying");
+        $form->addButton("Enable/Disable Edit Sign");
+        $form->addButton("Enable/Disable Sapling Growth");
+        $form->addButton("Enable/Disable Fall Damage");
+        $form->addButton("Enable/Disable Invincibility");
+        $form->addButton("Enable/Disable Flint and Steel");
 
         $player->sendForm($form);
      }
