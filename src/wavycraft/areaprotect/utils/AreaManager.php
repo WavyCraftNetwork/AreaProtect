@@ -111,7 +111,7 @@ class AreaManager {
                 'sapling_growth' => true,
                 'fall_damage' => true,
                 'invincible' => true,//not actually enabled yet...
-                'flint_and_steel' => true
+                'flint_and_steel' => true,
                 'lava' => true,
                 'fire' => true,
                 'fire_tick' => true,
