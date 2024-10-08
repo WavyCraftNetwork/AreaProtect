@@ -157,6 +157,12 @@ class EventListener implements Listener {
             }    
         }
 
+        if ($event->getCause() === EntityDamageEvent::CAUSE_SUFFOCATION) {
+            if ($area && !$area['flags']['suffocation']) {
+            $event->cancel();                
+            }    
+        }
+
         if ($area && !$area['flags']['invincible']) {
             $event->cancel();
         }
