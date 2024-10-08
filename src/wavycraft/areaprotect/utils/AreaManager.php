@@ -43,13 +43,17 @@ class AreaManager {
     public function setPosition(Player $player, Vector3 $position) {
         if (isset($this->positionBuffer[$player->getName()])) {
             $buffer = &$this->positionBuffer[$player->getName()];
-        
+
             if ($buffer['pos1'] === null) {
                 $buffer['pos1'] = $position;
                 $player->sendMessage("Position 1 set! Now click another block for Position 2.");
             } elseif ($buffer['pos2'] === null) {
                 $buffer['pos2'] = $position;
-                $this->saveArea($buffer['tag'], $buffer['pos1'], $buffer['pos2']);
+
+                $worldFolderName = $player->getWorld()->getFolderName();
+
+                $this->saveArea($buffer['tag'], $buffer['pos1'], $buffer['pos2'], $worldFolderName);
+
                 $player->sendMessage("Position 2 set! Area '{$buffer['tag']}' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
             } else {
@@ -58,8 +62,9 @@ class AreaManager {
         }
     }
 
-    public function saveArea(string $tag, Vector3 $pos1, Vector3 $pos2) {
-        $world = Loader::getInstance()->getServer()->getWorldManager()->getWorldByName($pos1->getWorld()->getFolderName());
+    public function saveArea(string $tag, Vector3 $pos1, Vector3 $pos2, string $worldFolderName) {
+        $world = Loader::getInstance()->getServer()->getWorldManager()->getWorldByName($worldFolderName);
+    
         $this->areas[$tag] = [
             'world' => [
                 'folder_name' => $world->getFolderName()
@@ -109,7 +114,7 @@ class AreaManager {
                 'flint_and_steel' => true
             ]
         ];
-        
+
         $this->saveAreas();
     }
 
