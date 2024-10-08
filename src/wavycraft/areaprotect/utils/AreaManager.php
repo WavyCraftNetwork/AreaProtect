@@ -112,6 +112,12 @@ class AreaManager {
                 'fall_damage' => true,
                 'invincible' => true,//not actually enabled yet...
                 'flint_and_steel' => true
+                'lava' => true,
+                'fire' => true,
+                'fire_tick' => true,
+                'projectile_damage' => true,
+                'drowning' => true,
+                'entity_explosion' => true
             ]
         ];
 
@@ -257,6 +263,24 @@ class AreaManager {
                 case 31:
                     $this->toggleFlag($tag, 'flint_and_steel', $player);
                     break;
+                case 32:
+                    $this->toggleFlag($tag, 'lava', $player);
+                    break;
+                case 33:
+                    $this->toggleFlag($tag, 'fire', $player);
+                    break;
+                case 34:
+                    $this->toggleFlag($tag, 'fire_tick', $player);
+                    break;
+                case 35:
+                    $this->toggleFlag($tag, 'projectile_damage', $player);
+                    break;
+                case 36:
+                    $this->toggleFlag($tag, 'drowning', $player);
+                    break;
+                case 37:
+                    $this->toggleFlag($tag, 'entity_explosion', $player);
+                    break;
                 }
             });
 
@@ -294,6 +318,12 @@ class AreaManager {
         $form->addButton("Enable/Disable Fall Damage");
         $form->addButton("Enable/Disable Invincibility");
         $form->addButton("Enable/Disable Flint and Steel");
+        $form->addButton("Enable/Disable Lava damage");
+        $form->addButton("Enable/Disable Fire damage");
+        $form->addButton("Enable/Disable Fire Tick");
+        $form->addButton("Enable/Disable Projectile Damage");
+        $form->addButton("Enable/Disable Drowning");
+        $form->addButton("Enable/Disable Entity Explosion");
 
         $player->sendForm($form);
      }
