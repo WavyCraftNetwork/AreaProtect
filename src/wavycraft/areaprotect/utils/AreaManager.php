@@ -10,6 +10,7 @@ use pocketmine\math\Vector3;
 
 use pocketmine\utils\Config;
 use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\TextFormat as TextColor;
 
 use wavycraft\areaprotect\Loader;
 
@@ -37,7 +38,7 @@ class AreaManager {
 
     public function initiateAreaCreation(Player $player, string $tag) {
         $this->positionBuffer[$player->getName()] = ['tag' => $tag, 'pos1' => null, 'pos2' => null];
-        $player->sendMessage("Left-click a block to set Position 1 for area '$tag'.");
+        $player->sendMessage("Left-click a block to set Position 1 for area '" . TextColor::YELLOW . $tag . TextColor::WHITE . "'.");
     }
 
     public function setPosition(Player $player, Vector3 $position) {
@@ -57,7 +58,7 @@ class AreaManager {
                 $player->sendMessage("Position 2 set! Area '{$buffer['tag']}' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
             } else {
-                $player->sendMessage("Both positions are already set for area '{$buffer['tag']}'.");
+                $player->sendMessage("Both positions are already set for area ' . TextColor::YELLOW . {$buffer['tag']} . TextColor::WHITE . '.");
             }
         }
     }
@@ -159,7 +160,7 @@ class AreaManager {
 
     public function openAreaEditForm(Player $player, string $tag) {
         if (!isset($this->areas[$tag])) {
-            $player->sendMessage("Area '$tag' does not exist.");
+            $player->sendMessage("Area '" . TextColor::RED . $tag . TextColor::WHITE . ' does not exist.");
             return;
         }
 
