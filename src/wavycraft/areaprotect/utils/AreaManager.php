@@ -58,7 +58,7 @@ class AreaManager {
                 $player->sendMessage("Position 2 set! Area '" . TextColor::GREEN . $buffer['tag'] . TextColor::WHITE . "' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
             } else {
-                $player->sendMessage("Both positions are already set for area '" . TextColor::GREEN . {$buffer['tag']} . TextColor::WHITE . "'.");
+                $player->sendMessage("Both positions are already set for area '" . TextColor::GREEN . $buffer['tag'] . TextColor::WHITE . "'.");
             }
         }
     }
