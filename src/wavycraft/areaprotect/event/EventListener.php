@@ -64,7 +64,7 @@ class EventListener implements Listener {
             $world = $damager->getWorld()->getFolderName();
             $area = $this->areaManager->getAreaAtPosition($entity->getPosition(), $world);
             if ($area && !$area['flags']['pvp']) {
-                $damager->sendMessage("pvp is disabled in this area.");
+                //$damager->sendMessage("pvp is disabled in this area.");
                 $event->cancel();
             }
         }
@@ -76,7 +76,7 @@ class EventListener implements Listener {
             $world = $shooter->getWorld()->getFolderName();
             $area = $this->areaManager->getAreaAtPosition($shooter->getPosition(), $world);
             if ($area && !$area['flags']['shoot_bow']) {
-                $shooter->sendMessage("Shooting bows is disabled in this area.");
+                //$shooter->sendMessage("Shooting bows is disabled in this area.");
                 $event->cancel();
             }
         }
@@ -89,7 +89,7 @@ class EventListener implements Listener {
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($entity instanceof Player) {
             if ($area && !$area['flags']['farmland_trample']) {
-                $entity->sendMessage("Trampling over farmland is disabled in this area.");
+                //$entity->sendMessage("Trampling over farmland is disabled in this area.");
                 $event->cancel();
             }
         }
@@ -188,7 +188,7 @@ class EventListener implements Listener {
         }
 
         if ($area && !$area['flags']['interaction']) {
-            $player->sendMessage("Interacting is disabled in this area.");
+            //$player->sendMessage("Interacting is disabled in this area.");
             $event->cancel();
         }
     }
@@ -198,7 +198,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($player->getPosition(), $world);
         if ($area && !$area['flags']['item_drop']) {
-            $player->sendMessage("Dropping items is disabled in this area.");
+            //$player->sendMessage("Dropping items is disabled in this area.");
             $event->cancel();
         }
     }
@@ -208,7 +208,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($player->getPosition(), $world);
         if ($area && !$area['flags']['item_use']) {
-            $player->sendMessage("Using items is disabled in this area.");
+            //$player->sendMessage("Using items is disabled in this area.");
             $event->cancel();
         }
     }
@@ -219,7 +219,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['bed_enter']) {
-            $player->sendMessage("Entering is disabled in this area.");
+            //$player->sendMessage("Entering is disabled in this area.");
             $event->cancel();
         }
     }
@@ -230,7 +230,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['buckets']) {
-            $player->sendMessage("Using buckets is disabled in this area.");
+            //$player->sendMessage("Using buckets is disabled in this area.");
             $event->cancel();
         }
     }
@@ -241,7 +241,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['skin_change']) {
-            $player->sendMessage("Changing skins is disabled in this area.");
+            //$player->sendMessage("Changing skins is disabled in this area.");
             $event->cancel();
         }
     }
@@ -252,7 +252,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['chat']) {
-            $player->sendMessage("Chatting is disabled in this area.");
+            //$player->sendMessage("Chatting is disabled in this area.");
             $event->cancel();
         }
     }
@@ -263,7 +263,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['edit_book']) {
-            $player->sendMessage("Editing/Signing books is disabled in this area.");
+            //$player->sendMessage("Editing/Signing books is disabled in this area.");
             $event->cancel();
         }
     }
@@ -284,7 +284,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['consume']) {
-            $player->sendMessage("Eating/drinking is disabled in this area.");
+            //$player->sendMessage("Eating/drinking is disabled in this area.");
             $event->cancel();
         }
     }
@@ -295,7 +295,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['enchanting']) {
-            $player->sendMessage("Enchanting is disabled in this area.");
+            //$player->sendMessage("Enchanting is disabled in this area.");
             $event->cancel();
         }
     }
@@ -305,7 +305,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($player->getPosition(), $world);
         if ($area && !$area['flags']['craft_item']) {
-            $player->sendMessage("Crafting items is disabled in this area.");
+            //$player->sendMessage("Crafting items is disabled in this area.");
             $event->cancel();
         }
     }
@@ -315,7 +315,7 @@ class EventListener implements Listener {
         $world = $player->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($player->getPosition(), $world);
         if ($area && !$area['flags']['open_inventory']) {
-            $player->sendMessage("Opening inventory's is disabled in this area.");
+            //$player->sendMessage("Opening inventory's is disabled in this area.");
             $event->cancel();
         }
     }
@@ -380,7 +380,7 @@ class EventListener implements Listener {
         $world = $pos->getWorld()->getFolderName();
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
         if ($area && !$area['flags']['edit_sign']) {
-            $player->sendMessage("Editing signs is disabled in this area.");
+            //$player->sendMessage("Editing signs is disabled in this area.");
             $event->cancel();
         }
     }
@@ -402,7 +402,7 @@ class EventListener implements Listener {
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
 
         if ($area && !$area['flags']['block_place']) {
-            $player->sendMessage("Block placing is disabled in this area.");
+            //$player->sendMessage("Block placing is disabled in this area.");
             $event->cancel();
         }
     }
@@ -414,7 +414,7 @@ class EventListener implements Listener {
         $area = $this->areaManager->getAreaAtPosition($pos, $world);
 
         if ($area && !$area['flags']['block_break']) {
-            $player->sendMessage("Block breaking is disabled in this area.");
+            //$player->sendMessage("Block breaking is disabled in this area.");
             $event->cancel();
         }
     }
