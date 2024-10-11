@@ -38,7 +38,7 @@ class AreaManager {
 
     public function initiateAreaCreation(Player $player, string $tag) {
         $this->positionBuffer[$player->getName()] = ['tag' => $tag, 'pos1' => null, 'pos2' => null];
-        $player->sendMessage("Left-click a block to set Position 1 for area '" . TextColor::YELLOW . $tag . TextColor::WHITE . "'.");
+        $player->sendMessage("Left-click a block to set Position 1 for area '" . TextColor::GREEN . $tag . TextColor::WHITE . "'.");
     }
 
     public function setPosition(Player $player, Vector3 $position) {
@@ -55,10 +55,10 @@ class AreaManager {
 
                 $this->saveArea($buffer['tag'], $buffer['pos1'], $buffer['pos2'], $worldFolderName);
 
-                $player->sendMessage("Position 2 set! Area '{$buffer['tag']}' has been created.");
+                $player->sendMessage("Position 2 set! Area '" . TextColor::GREEN . {$buffer['tag']} . TextColor::WHITE . "' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
             } else {
-                $player->sendMessage("Both positions are already set for area ' . TextColor::YELLOW . {$buffer['tag']} . TextColor::WHITE . '.");
+                $player->sendMessage("Both positions are already set for area '" . TextColor::GREEN . {$buffer['tag']} . TextColor::WHITE . "'.");
             }
         }
     }
@@ -128,8 +128,8 @@ class AreaManager {
     public function toggleFlag(string $tag, string $flag, Player $player) {
         if (isset($this->areas[$tag]['flags'][$flag])) {
             $this->areas[$tag]['flags'][$flag] = !$this->areas[$tag]['flags'][$flag];
-            $status = $this->areas[$tag]['flags'][$flag] ? "enabled" : "disabled";
-            $player->sendMessage("Flag '$flag' for area '$tag' is now $status.");
+            $status = $this->areas[$tag]['flags'][$flag] ? "§aenabled" : "§cdisabled";
+            $player->sendMessage("Flag '" . TextColor::YELLOW . $flag . TextColor::WHITE . "' for area '" . TextColor::GREEN . $tag . TextColor::WHITE . "' is now $status.");
             $this->saveAreas();
         }
     }
@@ -160,7 +160,7 @@ class AreaManager {
 
     public function openAreaEditForm(Player $player, string $tag) {
         if (!isset($this->areas[$tag])) {
-            $player->sendMessage("Area '" . TextColor::RED . $tag . TextColor::WHITE . ' does not exist.");
+            $player->sendMessage("Area '" . TextColor::RED . $tag . TextColor::WHITE . "' does not exist.");
             return;
         }
 
