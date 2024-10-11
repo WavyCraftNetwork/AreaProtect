@@ -55,7 +55,7 @@ class AreaManager {
 
                 $this->saveArea($buffer['tag'], $buffer['pos1'], $buffer['pos2'], $worldFolderName);
 
-                $player->sendMessage("Position 2 set! Area '" . TextColor::GREEN . {$buffer['tag']} . TextColor::WHITE . "' has been created.");
+                $player->sendMessage("Position 2 set! Area '" . TextColor::GREEN . $buffer['tag'] . TextColor::WHITE . "' has been created.");
                 unset($this->positionBuffer[$player->getName()]);
             } else {
                 $player->sendMessage("Both positions are already set for area '" . TextColor::GREEN . {$buffer['tag']} . TextColor::WHITE . "'.");
